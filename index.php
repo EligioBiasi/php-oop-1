@@ -25,7 +25,13 @@
  }
 
 
+//  vengono istanziati almeno due oggetti ‘Movie’ e stampati a schermo i valori delle relative proprietà
 
     $western = new Movie('il Buono, il Brutto e il Cattivo', 'spaghetti Western', 180);
-    var_dump($western)
+    echo $western->getTitle();
+    var_dump($western);
+
+    $animation = new Movie('Porco Rosso', 'animation', 102);
+    echo $animation->getTitle();
+    var_dump($animation);
  ?>
