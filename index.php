@@ -6,17 +6,16 @@
 
  class Movie {
     public $title;
-    public $genre;
     public $duration;
 
     // => all'interno della classe è definito un costruttore
 
-    function __construct(string $title, string $genre, int $duration){
+    function __construct(string $title, Genres $genre, int $duration,){
         $this->title = $title;
-        $this->genre = $genre;
         $this->duration = $duration;
+        $this->genre = $genre;
     }
-
+    
     // => all'interno della classe è definito almeno un metodo
         
         function getTitle(){
@@ -24,14 +23,29 @@
         }
  }
 
+    // Bonus 1:
+    // Modificare la classe Movie in modo che accetti piú di un genere.
 
-//  vengono istanziati almeno due oggetti ‘Movie’ e stampati a schermo i valori delle relative proprietà
+ class Genres {
+    public $genre;
+    public $secondGenre;
+    public $thirdGenre;
 
-    $western = new Movie('il Buono, il Brutto e il Cattivo', 'spaghetti Western', 180);
+    function __construct(string $genre, string $secondGenre, string $thirdGenre){
+        $this->genre = $genre;
+        $this->secondGenre = $secondGenre;
+        $this->thirdGenre = $thirdGenre;
+    }
+}
+
+
+    //  vengono istanziati almeno due oggetti ‘Movie’ e stampati a schermo i valori delle relative proprietà
+
+    $western = new Movie('il Buono, il Brutto e il Cattivo', new Genres('spaghetti Western', ' ',' ') ,180);
     echo $western->getTitle();
     var_dump($western);
 
-    $animation = new Movie('Porco Rosso', 'animation', 102);
+    $animation = new Movie('Porco Rosso',new Genres('animation', ' ',' '), 102);
     echo $animation->getTitle();
     var_dump($animation);
  ?>
